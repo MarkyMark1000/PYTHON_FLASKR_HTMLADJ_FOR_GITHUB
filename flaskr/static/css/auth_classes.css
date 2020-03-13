@@ -1,0 +1,115 @@
+/*
+
+CSS Sheet for the auth classes within this project.   I tend to use id's to format specific objects rather than
+applying a class style to a wide range of objects.
+
+I assume that global_reset_and_variables is included prior to this one which sets things such as margins 
+and padding to zero.
+
+base_ids.css and base_classes.css are global within this flask project as all other templates inherit
+this one.   I tend to use the following style:
+
+  - ID names generally take a format similar to #idTopNav, #idMainNav etc
+  - Class names generally take the BEM format, eg .button, .button__price, .button--red
+  - I have used tabs.
+  - add two blank lines between sections and one blank line between blocks.
+  - each selector should be on its own line ending in either a ; or { except the closing line which 
+    ends in }
+  - property value pairs should be on their own line with one tab indentation and ending in a semi-colon.   
+    The closing brace should be flush left.
+  - I use global variables stored in the global_reset_and_variables sheet.
+
+*/
+
+/* Headers */
+.header__auth {
+    width: 95%;
+    color: var(--authheader-color);
+    background-color: var(--authheader-bg-color);
+    font-size: 1.25em;
+    padding: 7px 10px 7px 10px;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Forms */
+.form__auth {
+    width: 480px;
+    margin: 0px auto;
+    padding: 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    border: solid 1px darkgray;
+    box-shadow: 4px 4px 8px darkgrey;
+  }
+  @media screen and (max-width: 1200px) {
+    .form__auth {
+      width: 360px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .form__auth {
+          width: 260px;
+      }
+  }
+
+/* inputs */
+.input__auth {
+    color: var(--authinput-color);
+    background-color:var(--authinput-bg-color);
+    padding: 7px 10px 7px 10px;
+    margin: 1em auto;
+    font-size: 1em;
+    width: 95%;
+    border: solid 1px grey;
+    border-radius: 2px;
+}
+
+/* buttons */
+.button__auth {
+    width: 95%;
+    padding: 9px 10px 9px 10px;
+    margin: auto;
+    font-size: 0.9em;
+    border: solid 5px var(--autharticle-bg-color);  /*to resize button relative to inputs*/
+    outline: none;
+    cursor: pointer;
+    color: var(--authbutton-color);
+    background-color: var(--authbutton-bg-color);
+    border-radius: 2px;
+  }
+    .button__auth:hover {
+      background-color: var(--authbutton-hover-bg-color);
+    }
+
+/* divs */
+.div__auth_display {
+    color: var(--authinput-color);
+    background-color:var(--authinput-bg-color);
+    padding: 10px 10px 10px 15px;
+    margin: 20px auto;
+    width: 95%;
+    border: solid 1px grey;
+    border-radius: 2px;
+}
+.div__auth_flash {
+    color: red;
+    padding: 10px 10px 10px 15px;
+    margin: 20px auto;
+    font-size: 0.75em;
+}
+
+/* p tag's */
+.p__auth {
+    color: rgb(115, 115, 115);
+    font-size: 0.75em;
+  }
+
+/* a tag's */
+.a__auth {
+    color: rgb(42, 81, 163);
+}
+
+
+

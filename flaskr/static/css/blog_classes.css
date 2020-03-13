@@ -1,0 +1,162 @@
+/*
+
+CSS Sheet for the blog classes's within this project.   I tend to use id's to format specific objects rather than
+applying a class style to a wide range of objects.
+
+I assume that global_reset_and_variables is included prior to this one which sets things such as margins 
+and padding to zero.
+
+base_ids.css and base_classes.css are global within this flask project as all other templates inherit
+this one.   I tend to use the following style:
+
+  - ID names generally take a format similar to #idTopNav, #idMainNav etc
+  - Class names generally take the BEM format, eg .button, .button__price, .button--red
+  - I have used tabs.
+  - add two blank lines between sections and one blank line between blocks.
+  - each selector should be on its own line ending in either a ; or { except the closing line which 
+    ends in }
+  - property value pairs should be on their own line with one tab indentation and ending in a semi-colon.   
+    The closing brace should be flush left.
+  - I use global variables stored in the global_reset_and_variables sheet.
+
+*/
+
+
+
+.header__blog {
+    color: var(--blogheader-color);
+    background-color: var(--blogheader-bg-color);
+    padding: 7px 10px 7px 10px;
+    margin: 0px 0px 5px 0px;
+    border-radius: 2px;
+    font-size: 1.25em;
+}
+
+.header__blog_article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.div__blog_titleContainer {
+    padding: 0px;
+    margin: 0px auto 0px 0px;
+}
+.div__blog_title {
+    width: 100%;
+    color:  rgb(42, 81, 163);
+    padding: 0px 10px 0px 10px;
+    font-size: 1.2em;
+}
+
+.div__blog_author {
+    color: lightgrey;
+    padding: 0px 10px 0px 10px;
+    font-size: 0.85em;
+}
+
+.div__blog_edit {
+    color:  rgb(42, 81, 163);
+    font-size: 0.85em;
+}
+.div__blog_flash {
+    color: red;
+    padding: 5px 5px 5px 5px;
+    margin: 10px auto;
+}
+
+.main__blog {
+    color: darkslategrey;
+    padding: 10px 10px 0px 10px;
+    font-size: 1em;
+}
+
+.input__blog {
+    width: 100%;
+    padding: 5px 10px 5px 15px;
+    margin: 20px 0px 20px 0px;
+    font-size: 1em;
+    color: var(--bloginput-color);
+    background-color: var(--bloginput-bg-color);
+    border: solid 1px grey;
+    border-radius: 2px;
+    }
+
+.textarea__blog {
+    width: 100%;
+    padding: 5px 10px 5px 15px;
+    margin: 20px 0px 20px 0px;
+    font-size: 1em;
+    color: var(--bloginput-color);
+    background-color: var(--bloginput-bg-color);
+    border: solid 1px grey;
+    border-radius: 2px;
+    resize: none;
+}
+
+.button__blog {
+    width: 100%;
+    padding: 10px 6px 10px 6px;
+    margin: 20px 0px 20px 0px;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--blogbutton-color);
+    background-color: var(--blogbutton-bg-color);
+    border-radius: 2px;
+}
+    .button__blog:hover {
+        background-color: var(--blogbutton-hover-bg-color);
+    }
+
+    .button__blog_small_left {
+        width: 30%;
+        padding: 10px 6px 10px 6px;
+        margin: 20px auto 20px 0px;
+        font-size: 1em;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: var(--blogbutton-color);
+        background-color: var(--blogbutton-bg-color);
+        border-radius: 2px;
+    }
+        .button__blog_small_left:hover {
+            background-color: var(--blogbutton-hover-bg-color);
+        }
+    .button__blog_small_right {
+        width: 30%;
+        padding: 10px 6px 10px 6px;
+        margin: 20px 0px 20px auto;
+        font-size: 1em;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: var(--blogbutton-color);
+        background-color: var(--blogbutton-bg-color);
+        border-radius: 2px;
+    }
+        .button__blog_small_right:hover {
+            background-color: var(--blogbutton-hover-bg-color);
+        }
+    .button__blog_danger {
+        width: 30%;
+        padding: 10px 6px 10px 6px;
+        margin: 20px 0px 20px auto;
+        font-size: 1em;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: var(--blogbutton-danger-color);
+        background-color: var(--blogbutton-danger-bg-color);
+        border-radius: 2px;
+    }
+        .button__blog_danger:hover {
+            color: white;
+            background-color: var(--blogbutton-danger-hover-bg-color);
+        }
+
+.flexbox__row_break{
+    flex-basis: 100%;
+    height: 0;
+}

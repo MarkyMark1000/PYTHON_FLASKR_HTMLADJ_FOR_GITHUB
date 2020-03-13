@@ -1,0 +1,141 @@
+/*
+
+CSS Sheet used to reset the margins, padding etc for most HTML objects.   The sheet also contains
+global variable definitions for defining things such as colours to be used when building the
+sheets.
+
+This sheet must be included in all HTML documents (or templates) before all other css sheets in 
+the project.
+
+   The original version of this file was taken from the following website:
+        http://meyerweb.com/eric/tools/css/reset/ 
+
+*/
+
+/****************************************************************
+************************** RESETS *******************************
+****************************************************************/
+
+/* Set margins, padding, border etc to zero for most objects */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table	asghgfhgflklkj {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*remove text decoration from links by default*/
+a {
+	text-decoration: none;
+}
+
+/*set box sizing to border box for inputs etc as it is easier.*/
+* {
+	box-sizing: border-box
+}
+
+/****************************************************************
+************************ VARIABLES ******************************
+****************************************************************/
+
+:root {
+	/*Default Responsive Text Sizes*/
+	--responsive-text-phone: 14px;
+	--responsive-text-tablet: 16px;
+	--responsive-text-pc: 20px;
+	/*used commonly in base template*/
+	--topnav-bg-color: rgb(235, 235, 235);
+	--topnav-color: rgb(29, 95, 95);
+	--HiddenSearchForm-bg-color: rgba(1, 26, 102,1);
+	--HiddenSearchForm-color: white;
+	--titleheader-bg-left-color: rgba(1, 26, 102,1);
+	--titleheader-bg-right-color: rgba(43, 92, 226,1);
+	--titleheader-color: white;
+	--hiddenuser-color: rgb(115, 115, 115);
+	--hiddenuser-bg-color: rgb(235, 235, 235);
+	--hiddenuser-hover-color: rgb(128, 191, 255);
+	--hiddenuser-border-color: rgba(169, 169, 169, 0.425);
+	--titleheader-fas-color: white;
+	--mainphonemenu-color: white;
+	--mainphonemenu-bg-color: rgba(1, 26, 102,1);
+	--mainphonemenu-hover-color: rgb(255,255,204);
+	--mainmenunotphone-color: white;
+	--mainpmenunotphone-bg-color: rgba(1, 26, 102,1);
+	--mainpmenunotphone-hover-color: rgb(255,255,204);
+	--mainpmenunotphone-hover-bg-color: rgba(43, 92, 226,1);
+	--mainpmenunotphone-selected-color: rgba(128, 191, 255,1);
+	--authmain-bg-color: rgb(235, 235, 235);
+	/*used commonly in auth templates*/
+	--authmain-color: white;
+	--autharticle-bg-color: white;
+	--autharticle-color: darkgrey;
+	--authheader-bg-color: rgba(1, 26, 102,1);
+	--authheader-color: white;
+	--authinput-bg-color: rgb(242, 242, 242);
+	--authinput-color: darkgrey;
+	--authbutton-bg-color: rgba(1, 26, 102,1);
+	--authbutton-color: white;
+	--authbutton-hover-bg-color: rgba(43, 92, 226,1);
+	/*used commonly in blog templates*/
+	--blogmain-bg-color: rgb(235, 235, 235);
+	--blogmain-color: white;
+	--blogarticle-bg-color: white;
+	--blogarticle-color: darkgrey;
+	--blogheader-bg-color: rgba(1, 26, 102,1);
+	--blogheader-color: white;
+	--bloginput-bg-color: rgb(242, 242, 242);
+	--bloginput-color: darkgrey;
+	--blogbutton-bg-color: rgba(1, 26, 102,1);
+	--blogbutton-color: white;
+	--blogbutton-hover-bg-color: rgba(43, 92, 226,1);
+	--blogbutton-danger-bg-color: red;
+	--blogbutton-danger-color: white;
+	--blogbutton-danger-hover-bg-color: orange;
+	/*used commonly in footer*/
+	--footer-color: white;
+	--footer-bg-color: grey;
+  }

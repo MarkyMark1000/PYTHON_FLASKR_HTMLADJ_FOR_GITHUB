@@ -1,0 +1,227 @@
+/*
+
+CSS Sheet for classes within this project.   I tend to use id's to format specific objects rather than
+applying a class style to a wide range of objects.
+
+I assume that global_reset_and_variables is included prior to this one which sets things such as margins 
+and padding to zero.
+
+base_ids.css and base_classes.css are global within this flask project as all other templates inherit
+this one.   I tend to use the following style:
+
+  - ID names generally take a format similar to #idTopNav, #idMainNav etc
+  - Class names generally take the BEM format, eg .button, .button__price, .button--red
+  - I have used tabs.
+  - add two blank lines between sections and one blank line between blocks.
+  - each selector should be on its own line ending in either a ; or { except the closing line which 
+    ends in }
+  - property value pairs should be on their own line with one tab indentation and ending in a semi-colon.   
+    The closing brace should be flush left.
+
+*/
+
+/*Float specific classes*/
+/*Please note that these are not used anymore, but I have left them in just incase.*/
+.float--right {
+    float: right;
+}
+.float--left {
+    float: left;
+}
+.float--right-then-left {
+    float: right;
+}
+@media screen and (max-width: 600px) {
+    .float--right-then-left {
+        float: left;
+    }
+}
+.float--left-then-right {
+    float: left;
+    text-align: left;
+}
+@media screen and (max-width: 600px) {
+    .float--left-then-right {
+        float: right;
+        text-align: right;
+    }
+}
+.clear--both {
+    clear: both;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/*Alignment specific classes*/
+.text--right-align {
+    text-align: right;
+}
+.text--left-align {
+    text-align: left;
+}
+.text--right-then-left-align {
+    text-align: right;
+}
+@media screen and (max-width: 600px) {
+    .text--right-then-left-align {
+        text-align: left;
+    }
+}
+.text--left-then-right-align {
+    text-align: left;
+}
+@media screen and (max-width: 600px) {
+    .text--left-then-right-align {
+        text-align: right;
+    }
+}
+
+/*Link specific classes*/
+.a--TopNav-color {
+    color: var(--topnav-color);
+}
+.a__HiddenUserData_format {
+    color: var(--hiddenuser-color);
+}
+.a__HiddenUserData_format:hover {
+    color: var(--hiddenuser-hover-color);
+    text-decoration: underline;
+}
+.a__Title {
+    color: var(--titleheader-color);
+}
+.a__TitleHeader_fas_format {
+    color: var(--titleheader-fas-color);
+}
+.a__MainMenuPhone_format {
+    color: var(--mainphonemenu-color);
+}
+.a__MainMenuPhone_format:hover {
+    color: var(--mainphonemenu-hover-color);
+    text-decoration: underline;
+}
+.a__MainMenuNOTPhone_format {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    color: var(--mainmenunotphone-color);
+    border-bottom: 3px solid transparent;
+}
+    .a__MainMenuNOTPhone_format:hover {
+        background-color: var(--mainpmenunotphone-hover-bg-color);
+    }
+    .a__MainMenuNOTPhone_selected {
+        border-bottom: 3px solid var(--mainpmenunotphone-selected-color);
+    }
+
+/*Input specific classes*/
+.input__HiddenSearchForm {
+    color: rgb(75, 99, 99);
+    background-color: white;
+    width:350px;                                      /*Keep this and buttons under mobile size*/
+    padding: 6px 6px 6px 6px;
+    border-style:solid;
+    border-width:2px;                                 /*Same size as hover - avoid jerky movements when changing phone->pc.*/
+    border-color: var(--HiddenSearchForm-bg-color);   /*Same color as background - avoid jerky movements when changing phone->pc.*/
+    outline: none;
+    font-size: 0.75em;
+}
+@media screen and (max-width: 600px) {
+    .input__HiddenSearchForm {
+        width: 200px;
+    }
+}
+
+
+
+/*Button specific classes*/
+.button__HiddenSearchForm {
+    color: darkgrey;
+    background-color: white;
+    width: 60px;
+    padding: 6px 6px 6px 6px;
+    border: none;
+    outline: none;
+    font-size: 0.75em;
+    cursor: pointer;
+}
+@media screen and (max-width: 1200px) {
+    .button__HiddenSearchForm {
+      width: 40px;
+    }
+  }
+.button__HiddenSearchForm:hover {
+    color: white;
+    background-color: rgb(128, 191, 255);
+}
+
+/*Div specific classes*/
+.div--ellipse-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.div__paddedTopDiv {
+    padding: 7px;       /*Necessary to stop fontawesome icon getting cut-off*/
+    width: 140px;
+    font-size: 0.9em;
+}
+@media only screen and (max-width: 1200px) {
+    .div__paddedTopDiv {
+        padding: 6px;
+        width: 120px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .div__paddedTopDiv {
+        padding: 4px;
+        width: 100px;
+    }
+}
+.div__flexSwitchRightToLeft {
+    margin: 0px;
+}
+@media only screen and (max-width: 600px) {
+    .div__flexSwitchRightToLeft{
+        margin: 0px auto 0px 0px;
+    }
+}
+
+.div__HiddenUserData {
+    padding: 10px 10px 10px 10px;
+    margin: 0px 10px 0px 0px;
+    width:47%;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: var(--hiddenuser-color);
+    font-size: 0.75em;
+}
+@media screen and (max-width: 600px) {
+    .div__HiddenUserData {
+        width: 94%;
+    }
+}
+
+.div__MainMenuPhone_data{
+    padding: 30px 0px 5px 30px;
+    align-items: center;
+    width:90%;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: var(--mainphonemenu-color);
+}
+.div__MainMenuNOTPhone {
+    display:inline-block;
+    padding: 10px 30px 10px 30px;
+}
+/**/
+.div__mainmenudata_notphone{
+    /*display:inline-block;*/
+    display: block;
+    text-align:center;
+    padding: 10px 30px 10px 30px;
+    text-align: left;
+}

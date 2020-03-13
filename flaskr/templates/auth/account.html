@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block templateCSS %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth_ids.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth_classes.css') }}">
+{% endblock %}
+
+
+{% block main %}
+
+<main id="idMainAuth">
+
+  <article id="idArticleAuth">
+
+    <header class="header__auth">
+      Username
+    </header>
+
+    <div class="div__auth_display">
+        {{ request.form['username'] or userData['username'] }}
+    </div>
+
+      {% for message in get_flashed_messages() %}
+    <div class="div__auth_flash">{{ message }}</div>
+    {% endfor %}
+
+  </article>
+
+</main>
+
+{% endblock %}

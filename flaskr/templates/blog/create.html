@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block templateCSS %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_ids.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_classes.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<main id="idMainBlog">
+
+  <article id="idArticleBlog">
+
+    <header class="header__blog">
+      New Post
+    </header>
+
+    <form id="idFormBlog" method="post" autocomplete="off">
+      <input name="title" id="title" class="input__blog" value="{{ request.form['title'] }}" placeholder="title" autofocus required>
+      <textarea name="body" id="body" class="textarea__blog" rows="5" placeholder="body...">{{ request.form['body'] }}</textarea>
+      <input class="button__blog_small_left" type="submit" value="Cancel" formaction="{{ url_for('blog.index') }}" formmethod="get" formnovalidate>
+      <input class="button__blog_small_right" type="submit" value="Save">
+      <div class="flexbox__row_break"></div>
+      {% for message in get_flashed_messages() %}
+        <div class="div__blog_flash">{{ message }}</div>
+      {% endfor %}
+    </form>
+
+  </article>
+
+</main>
+
+{% endblock %}

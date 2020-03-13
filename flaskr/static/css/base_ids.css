@@ -1,0 +1,225 @@
+/*
+
+CSS Sheet for id's within this project.   I tend to use id's to format specific objects rather than
+applying a class style to a wide range of objects.
+
+I assume that global_reset_and_variables is included prior to this one which sets things such as margins 
+and padding to zero.
+
+base_ids.css and base_classes.css are global within this flask project as all other templates inherit
+this one.   I tend to use the following style:
+
+  - ID names generally take a format similar to #idTopNav, #idMainNav etc
+  - Class names generally take the BEM format, eg .button, .button__price, .button--red
+  - I have used tabs.
+  - add two blank lines between sections and one blank line between blocks.
+  - each selector should be on its own line ending in either a ; or { except the closing line which 
+    ends in }
+  - property value pairs should be on their own line with one tab indentation and ending in a semi-colon.   
+    The closing brace should be flush left.
+  - I use global variables stored in the global_reset_and_variables sheet.
+
+*/
+
+/***** Top Header *****/
+#idBody {
+  min-width: 320px;   /*scrollbar if below iphone5*/
+}
+
+#idTopNav {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  padding: 10px 20px 10px 20px;
+  text-align: right;
+  color: var(--topnav-color);
+  background-color: var(--topnav-bg-color);
+  font-size: var(--responsive-text-pc);
+}
+@media only screen and (max-width: 1200px) {
+  #idTopNav {
+    font-size: var(--responsive-text-tablet);
+  }
+}
+@media only screen and (max-width: 600px) {
+  #idTopNav {
+    font-size: var(--responsive-text-phone);
+  }
+}
+  
+/***** Hidden Search Form *****/
+
+#idHiddenSearchForm {
+  display: block;
+  display: none;
+  width: 100%;
+  padding: 5px 0px 5px 0px;
+  text-align: center;
+  color: var(--HiddenSearchForm-color);
+  background-color: var(--HiddenSearchForm-bg-color);
+  font-size: var(--responsive-text-pc);
+}
+@media only screen and (max-width: 1200px) {
+  #idHiddenSearchForm {
+    font-size: var(--responsive-text-tablet);
+  }
+}
+@media only screen and (max-width: 600px) {
+  #idHiddenSearchForm {
+    font-size: var(--responsive-text-phone);
+  }
+}
+
+/***** Title Header *****/
+
+#idTitleHeader {
+  position: relative;
+  padding: 30px 20px 30px 20px;
+  color: var(--titleheader-color);
+  /*Older Browsers, then ones that can use linear-gradient*/
+  background-color: blue;
+  background: linear-gradient(to right,var(--titleheader-bg-left-color), var(--titleheader-bg-right-color));
+  font-size: var(--responsive-text-pc);
+}
+@media only screen and (max-width: 1200px) {
+  #idTitleHeader {
+    font-size: var(--responsive-text-tablet);
+  }
+}
+@media only screen and (max-width: 600px) {
+  #idTitleHeader {
+    font-size: var(--responsive-text-phone);
+  }
+}
+  /***** Hidden User Div is within TitleHeader to allow absolute/relative positioning *****/
+  #idHiddenUserDiv {
+    display: none;
+    width: 100%;
+    position: absolute;  /*position, top and left are key to positioning menu's*/
+    top: 0%;
+    left: 0%;
+    padding: 10px 20px 25px 20px;
+    color: var(--hiddenuser-color);
+    background-color: var(--hiddenuser-bg-color);
+    z-index: 1000;
+    border-style:solid;
+    border-width:2px;
+    border-color: var(--hiddenuser-border-color);
+  }
+  #idHiddenUserDivFlexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  /***** Actual Title *****/
+  #idTitle{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    text-align: left;
+  }
+    #idTitleText {
+      font-style: italic;
+      font-size: 2.2em;
+    }
+    #idFAMenuIcon {
+      margin: 0px 0px 0px auto;
+    }
+    /***** fontawesome icon links *****/
+      #idTitleThreeBars {
+        display: none;
+        text-align: right;
+    }
+    @media screen and (max-width: 600px) {
+        #idTitleThreeBars {
+            display: inline-block;
+        }
+    }
+    #idTitleCancel {
+        display: none;
+    }
+    @media screen and (max-width: 600px) {
+        #idTitleCancel {
+            display: none;
+        }
+    }
+
+/***** MainMenuPhone - hidden unless in phone view *****/
+
+#idMainMenuPhone {
+  display:none;
+  position:absolute;
+  top:100%;
+  left: 0%;
+  width: 100%;
+  z-index: 1000;
+  color: var(--mainphonemenu-color);
+  background-color: var(--mainphonemenu-bg-color);
+  font-size: var(--responsive-text-pc);
+}
+@media only screen and (max-width: 1200px) {
+  #idMainMenuPhone {
+    font-size: var(--responsive-text-tablet);
+  }
+}
+@media screen and (max-width: 600px) {
+    #idMainMenuPhone {
+        display: block;
+        display: none;
+        font-size: var(--responsive-text-phone);
+    }
+}
+
+    /***** helps with format when moving from phone to normal mode *****/
+    #idMainMenuPhone__content{
+        display: none;
+    }
+    @media screen and (max-width: 600px) {
+        #idMainMenuPhone__content {
+            display: block;
+            padding: 5px 20px 35px 20px;
+        }
+    }
+
+/***** MainMenuNOTPhone - normal menu, not hidden unless in phone mode *****/
+
+#idMainMenuNOTPhone {
+  display:inline-block;
+  width: 100%;
+  /*padding: 4px 0px;*/
+  padding: 0px;
+  color: var(--mainpmenunotphone-color);
+  background-color: var(--mainpmenunotphone-bg-color);
+  font-size: var(--responsive-text-pc);
+}
+@media screen and (max-width: 1200px) {
+  #idMainMenuNOTPhone {
+    font-size: var(--responsive-text-tablet);
+  }
+}
+@media screen and (max-width: 600px) {
+    #idMainMenuNOTPhone {
+        display: none;
+        font-size: var(--responsive-text-phone);
+    }
+}
+
+#idFooter {
+  display: block;
+  color: var(--footer-color);
+  background-color: var(--footer-bg-color); 
+  padding: 10px 20px 10px 20px;
+  font-size: var(--responsive-text-pc);
+}
+@media screen and (max-width: 1200px) {
+  #idFooter {
+    font-size: var(--responsive-text-tablet);
+  }
+}
+@media screen and (max-width: 600px) {
+  #idFooter {
+    font-size: var(--responsive-text-phone);
+  }
+}

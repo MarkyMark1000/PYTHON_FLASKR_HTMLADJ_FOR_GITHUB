@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block templateCSS %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth_ids.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth_classes.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<main id="idMainAuth">
+
+  <article class="idArticleAuth">
+
+    <form class="form__auth" method="post" autocomplete="on">
+
+      <input name="username" id="username" class="input__auth" style="width: 90%;" placeholder="username" required>
+      <input type="password" name="password" id="password" class="input__auth" style="width: 90%;" placeholder="password" required>
+      <input type="submit" value="Register" class="button__auth">
+      {% for message in get_flashed_messages() %}
+        <div class="div__auth_flash">{{ message }}</div>
+      {% endfor %}
+    </form>
+
+  </article>
+
+</main>
+
+{% endblock %}

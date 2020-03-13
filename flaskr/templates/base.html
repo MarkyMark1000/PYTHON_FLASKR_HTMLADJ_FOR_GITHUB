@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- define characterset and ie compatible -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- responsive web for phone/tablet/pc resizing -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- descriptive meta tags -->
+    <meta name="description" content="HTML Template for Responsive Site with Account">
+    <meta name="keywords" content="HTML,CSS,JavaScript/JQuery">
+    <meta name="author" content="M Wilson">
+    <!--prevent cache - makes debugging easier, but slower -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!--reset css to try to help obtain consistancy between browsers-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global_reset_and_variables.css') }}">
+    <!--fontawesome, reference external, not saved locally-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--base css - these are global within this project-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base_ids.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base_classes.css') }}">
+    <!--template specific css -->
+    {% block templateCSS %}{% endblock %}
+
+    <!--JQuery Import-->
+    <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+
+    <!--title for the website-->
+    <title>{% block title %}{% endblock %} - Flaskr (adjusted by MJW)</title>
+  
+  </head>
+  <body id="idBody">
+    <!--
+    I originally created a version that uses floats and clearfix to position things.   I had seen
+    the flexbox and grid system and decided to change it so that it uses flexbox.   The CSS
+    in this system uses variables.
+    -->
+
+    <!-- Top Nav - ..... -->
+    <nav id="idTopNav">
+
+        <!--The search bar-->
+        <!--<div class="text--right-alignment"> -->
+        <div class="text--right-align div--ellipse-overflow div__paddedTopDiv">
+            <a href="#" id="idSearchLink" class="a--TopNav-color">
+                <i class="fas fa-search fa-lg"></i> Search
+            </a>
+        </div>
+
+        <!--The user login and actual user (Mark)-->
+        <div class="text--right-then-left-align  div__flexSwitchRightToLeft div--ellipse-overflow div__paddedTopDiv ">
+
+          {% if g.user is none %}
+            <a href="{{ url_for('auth.login') }}" class="a--TopNav-color">
+                <i class="fas fa-user-circle fa-lg"></i> &nbsp;Login&nbsp;
+            </a>
+          {% else %}
+            <a href="#" id="idUserLink" class="a--TopNav-color">
+                <i class="fas fa-user-circle fa-lg"></i> &nbsp;{{ g.user['username'] }}
+            </a>
+          {% endif %}
+
+        </div>
+
+    </nav>
+
+    <!--The hidden search dropdown menu-->
+    <form id="idHiddenSearchForm" action="{{ url_for('blog.search') }}" method="post">
+        <input id="idHiddenSearchFormInput" name = "nmHiddenSearchFormInput" class="input__HiddenSearchForm" type="text" placeholder="Search.." autofocus>
+        <button type="submit" id="idSubmitSearch" class="button__HiddenSearchForm"><i class="fa fa-search fa-lg"></i></button>
+        <button type="button" id="idCloseSearch" class="button__HiddenSearchForm"><i class="fa fa-times fa-lg"></i></button>
+    </form>
+
+    <!-- Title Header - ..... -->
+    <header id="idTitleHeader">
+
+        <!--The hidden user (Mark) menu -->
+        <!--unusual position so that we can use relative/absolute positioning-->
+        <div id="idHiddenUserDiv">
+            <div id="idHiddenUserDivFlexbox">
+                <div class="div__HiddenUserData">
+                    <a href="{{ url_for('auth.account') }}" class="a__HiddenUserData_format">
+                        Account
+                    </a>
+                </div>
+                <div class="div__HiddenUserData">
+                    <a href="{{ url_for('auth.logout') }}" class="a__HiddenUserData_format">
+                        Logout
+                    </a>
+                </div>   
+            </div>  
+        </div>
+
+        <!--Title at the top of website-->
+        <div id="idTitle">
+            <div id ="idTitleText" class="text--left-align">
+                <h1>
+                    <a href="{{ url_for('blog.index') }}" class="a__Title">
+                        Adjusted Flaskr
+                    </a>
+                </h1>
+            </div>
+
+
+            <!--font awesome nav menu only shown on phone mode-->
+            <div id="idFAMenuIcon" class="text--right-align">
+                <a href="#" id="idTitleThreeBars" class="a__TitleHeader_fas_format">
+                    <i class="fas fa-bars fa-2x"></i>
+                </a> 
+                <a href="#" id="idTitleCancel" class="a__TitleHeader_fas_format">
+                    <i class="fas fa-times fa-2x"></i>
+                </a> 
+            </div>
+        </div>
+
+        <!--Main Menu that displays when in Phone Mode-->
+        <!--unusual position so that we can use relative/absolute positioning-->
+        <div id="idMainMenuPhone">
+            <!--We hide the content of this menu when we switch from phone to normal mode using __content-->
+            <div id="idMainMenuPhone__content">
+                <div class="div__MainMenuPhone_data">
+                    <a href="{{ url_for('blog.index') }}" class="a__MainMenuPhone_format">Home</a>
+                </div>
+                {% if g.user %}
+                    <div class="div__MainMenuPhone_data">
+                        <a href="{{ url_for('blog.create') }}" class="a__MainMenuPhone_format">New Post</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </header>
+
+
+    <!--Main Menu that displays when NOT in Phone Mode-->
+    <nav id="idMainMenuNOTPhone">
+        <a href="{{ url_for('blog.index') }}" class="a__MainMenuNOTPhone_format">Home</a>
+        {% if g.user %}
+        <a href="{{ url_for('blog.create') }}" class="a__MainMenuNOTPhone_format">New Post</a>
+        {% endif %}
+    </nav>
+
+    <!--Main Block where the data used to go-->
+        {% block main %}{% endblock %}
+    <!---------------------------------------->
+
+    <!-- Footer - ..... -->
+    <footer id="idFooter">
+        <h6>Footer ...</h6>
+    </footer>
+
+    <!-- javascript for clicking icon and bringing up menu in phone mode -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/coreFunctions.js') }}"></script>
+        
+</body>
+</html>

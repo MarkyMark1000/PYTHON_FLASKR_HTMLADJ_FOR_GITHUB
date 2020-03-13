@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block templateCSS %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_ids.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_classes.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<main id="idMainBlog">
+
+  <article id="idArticleBlog">
+    
+    <header class="header__blog">
+      Posts
+    </header>
+      
+      {% for post in posts %}
+
+        <article>
+
+            <header class="header__blog_article">
+              <div class="div__blog_titleContainer">
+                <div class="div__blog_title">
+                  {{ post['title'] }}
+                </div>
+                <div class="div__blog_author">
+                    by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}
+                </div>
+              </div>
+              {% if g.user['id'] == post['author_id'] %}
+                <div>
+                  <a href="{{ url_for('blog.update', id=post['id']) }}">
+                      Edit
+                  </a>
+                </div>
+              {% endif %}
+            </header>
+
+            <!--Print main content of the article-->
+            <main class="main__blog">
+              {{ post['body'] }}
+            </main>
+
+            <!--If not the last article, print a horiontal bar-->
+            {% if not loop.last %}
+              <hr>
+            {% endif %}
+
+          </article>
+
+      {% endfor %}
+  
+    {% for message in get_flashed_messages() %}
+      <div class="div__blog_flash">{{ message }}</div>
+    {% endfor %}
+
+  </article>
+  
+</main>
+
+{% endblock %}
