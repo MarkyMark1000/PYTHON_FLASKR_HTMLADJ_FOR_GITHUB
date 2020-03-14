@@ -5,11 +5,10 @@ bs4==0.0.1
 Click==7.0
 coverage==4.5.2
 docutils==0.15.2
-Flask==1.0.2
-# Editable install with no version control (flaskr==1.0.1)
+Flask==1.1.1
 -e .
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.1
 MarkupSafe==1.1.1
 more-itertools==6.0.0
 pathlib2==2.3.3
@@ -21,4 +20,4 @@ selenium==3.141.0
 six==1.12.0
 soupsieve==1.9.2
 urllib3==1.25.3
-Werkzeug==0.14.1
+Werkzeug==1.0.0
