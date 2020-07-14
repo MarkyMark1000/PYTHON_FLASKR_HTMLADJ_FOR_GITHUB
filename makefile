@@ -44,7 +44,7 @@ venv:
 	@echo ""
 	rm -rf venv
 	@echo ""
-	virtualenv --no-site-packages -p python3 venv
+	virtualenv -p python3 venv
 	@echo ""
 	( source venv/bin/activate; pip install -r requirements.txt; )
 
