@@ -8,7 +8,7 @@ docutils==0.15.2
 Flask==1.1.1
 -e .
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 more-itertools==6.0.0
 pathlib2==2.3.3
