@@ -19,5 +19,5 @@ pytest==4.3.0
 selenium==3.141.0
 six==1.12.0
 soupsieve==1.9.2
-urllib3==1.25.3
+urllib3==1.25.8
 Werkzeug==1.0.0
